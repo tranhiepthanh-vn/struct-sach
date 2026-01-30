@@ -57,6 +57,7 @@ int main()
 			nhapn(ds, i, n);
 			printf("Nhap so sach dang co trong bo nho: ");
     		scanf("%d", &n);
+    		
 			break;
 	}
 	return 0;
