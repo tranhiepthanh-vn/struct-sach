@@ -13,7 +13,7 @@ int main()
 	int n,i,a,found;
 	char tusach[100];
 	sach s,ds[100];
-	printf("1 nhap 1 quyen \n2 nhap n quyen \n3 ghi n quyen \n4 doc n quyen \n5 tim sach");
+	printf("1 nhap 1 quyen \n2 nhap n quyen \n3 ghi n quyen \n4 doc n quyen \n5 tim sach trong file");
 	printf("\nhay nhap che do ban muon chon:");
 	scanf("%d",&a);
 	switch (a)
@@ -41,7 +41,7 @@ int main()
 			fclose(fp);
 			break;
 		case 4:
-			printf("ban muon xem may quyen sach tu file:");
+			printf("ban muon xem may quyen sach(tu tren xuong) tu file:");
 			scanf("%d",&n);
 			fp=fopen("sach.out","rt");
 			if (fp==NULL) {
@@ -52,7 +52,11 @@ int main()
 			fclose(fp);
 			break;
 		case 5:
-			
+			printf("ban muon nhap may quyen sach:");
+			scanf("%d",&n);
+			nhapn(ds, i, n);
+			printf("Nhap so sach dang co trong bo nho: ");
+    		scanf("%d", &n);
 			break;
 	}
 	return 0;
