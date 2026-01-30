@@ -55,9 +55,10 @@ int main()
 			printf("ban muon nhap may quyen sach:");
 			scanf("%d",&n);
 			nhapn(ds, i, n);
-			printf("Nhap so sach dang co trong bo nho: ");
-    		scanf("%d", &n);
-    		
+			char masach[11];
+			printf("\nNhap ma sach can tim: ");
+			scanf("%10s", masach);
+    		tim(ds,n,i,masach);
 			break;
 	}
 	return 0;
@@ -125,7 +126,15 @@ void docn(int i,int n,FILE *fp,sach ds[])
 		xuat(ds[i]);
 	}
 }
-void tim(sach ds[],int n,int i,int found)
+void tim(sach ds[],int n,int i,char masach[])
 {
-	found=0;
+	int found = 0;
+    for(int i = 0; i < n; i++){
+        if (strstr(ds[i].Ma_sach, masach) != NULL)
+		{
+            printf("\nTim thay sach:\n");
+            xuat(ds[i]);
+		}
+        else printf("ko tim thay sach");
+		
 }
