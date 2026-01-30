@@ -1,10 +1,8 @@
 # struct-sach
-Hướng dẫn sử dụng chương trình quản lý sách (C)
+Hướng dẫn sử dụng
 1. Sau khi tải code về
 
-Lưu file code với tên ví dụ: main.c
-
-Mở bằng Dev-C++ / Code::Blocks / VS Code (GCC)
+Mở bằng Dev-C++ / VS Code (GCC)
 
 Biên dịch và chạy chương trình
 
@@ -28,21 +26,21 @@ Khi chạy, chương trình hiển thị menu:
 Chọn chức năng bằng cách nhập số tương ứng:
 
 1 – Nhập 1 quyển sách
-→ Nhập thông tin và xem ngay trên màn hình.
+Nhập thông tin và xem ngay trên màn hình.
 
 2 – Nhập n quyển sách
-→ Nhập số lượng → nhập từng sách → hiển thị danh sách.
+Nhập số lượng → nhập từng sách → hiển thị danh sách.
 
 3 – Ghi n quyển sách ra file
-→ Nhập sách → lưu vào file sach.out.
+Nhập sách → lưu vào file sach.out.
 
 4 – Đọc sách từ file
-→ Đọc dữ liệu từ sach.out và hiển thị ra màn hình.
+Đọc dữ liệu từ sach.out và hiển thị ra màn hình.
 
 5 – Tìm sách theo mã sách
-→ Nhập danh sách sách
-→ Nhập mã sách cần tìm
-→ Chương trình dùng strstr() để tìm và hiển thị sách phù hợp.
+Nhập danh sách sách
+Nhập mã sách cần tìm
+Chương trình dùng strstr() để tìm và hiển thị sách phù hợp.
 
 3. Lưu ý
 
