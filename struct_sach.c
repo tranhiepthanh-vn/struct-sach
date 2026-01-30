@@ -1,5 +1,6 @@
 #include <stdio.h>
-void nhap();void nhapn();void xuat();void xuatn();void ghin();void docn();
+#include <string.h>
+void nhap();void nhapn();void xuat();void xuatn();void ghin();void docn();void tim();
 typedef struct sach
 	{
 		char Ma_sach[11],Tieu_de[100],Tac_gia[50],NXB[100],Loai_sach[50];
@@ -9,25 +10,25 @@ typedef struct sach
 int main()
 {
 	FILE *fp;
-	int n,i,a;
+	int n,i,a,found;
 	char tusach[100];
 	sach s,ds[100];
-	printf("0 nhap 1 quyen 1 nhap n quyen 2 ghi n quyen 3 doc n quyen\n");
-	printf("hay nhap che do ban muon chon:");
+	printf("1 nhap 1 quyen \n2 nhap n quyen \n3 ghi n quyen \n4 doc n quyen \n5 tim sach");
+	printf("\nhay nhap che do ban muon chon:");
 	scanf("%d",&a);
 	switch (a)
 	{
-		case 0:
+		case 1:
 			nhap(&s);
 			xuat(s);
 			break;
-		case 1:
+		case 2:
 			printf("ban muon nhap may quyen sach:");
 			scanf("%d",&n);
 			nhapn(ds,i,n);
 			xuatn(ds,n,i);
 			break;
-		case 2:
+		case 3:
 			printf("ban muon nhap may quyen sach:");
 			scanf("%d",&n);
 			nhapn(ds,i,n);
@@ -37,8 +38,21 @@ int main()
 				break;
 			}
 			ghin(fp,ds,i,n);
+			fclose(fp);
 			break;
-		case 3:
+		case 4:
+			printf("ban muon xem may quyen sach tu file:");
+			scanf("%d",&n);
+			fp=fopen("sach.out","rt");
+			if (fp==NULL) {
+				printf("error");
+				break;
+			}
+			docn(i,n,fp,ds);
+			fclose(fp);
+			break;
+		case 5:
+			
 			break;
 	}
 	return 0;
@@ -88,9 +102,25 @@ void ghin(FILE *fp,sach ds[],int i,int n)
 {
 	for (i=0;i<n;i++)
 	{
-		fprintf(fp,"%s\t%s\t%s\t%d\t%lld\t%d\t%s\t%s\n",ds[i].Ma_sach,ds[i].Tieu_de,ds[i].Tac_gia,ds[i].namxb,ds[i].Gia_ban,ds[i].So_trang,ds[i].NXB,ds[i].Loai_sach);
+		fprintf(fp,"%s\n%s\n%s\n%d\n%lld\n%d\n%s\n%s\n",ds[i].Ma_sach,ds[i].Tieu_de,ds[i].Tac_gia,ds[i].namxb,ds[i].Gia_ban,ds[i].So_trang,ds[i].NXB,ds[i].Loai_sach);
 	}
 }
-void docn()
+void docn(int i,int n,FILE *fp,sach ds[])
 {
+	for (i=0;i<n;i++)
+	{
+		fscanf(fp,"%s",ds[i].Ma_sach);
+		fscanf(fp,"%s",ds[i].Tieu_de);
+		fscanf(fp,"%s",ds[i].Tac_gia);
+		fscanf(fp,"%d",&ds[i].namxb);
+		fscanf(fp,"%lld",&ds[i].Gia_ban);
+		fscanf(fp,"%d",&ds[i].So_trang);
+		fscanf(fp,"%s",ds[i].NXB);
+		fscanf(fp,"%s",ds[i].Loai_sach);
+		xuat(ds[i]);
+	}
+}
+void tim(sach ds[],int n,int i,int found)
+{
+	found=0;
 }
